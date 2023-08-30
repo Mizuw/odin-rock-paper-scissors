@@ -24,15 +24,22 @@ function playRound(playerSelection, computerSelection) {
         case playerSelection == 'paper' && computerSelection == 'rock':
         case playerSelection == 'scissors' && computerSelection == 'paper':
             return `${playerSelection} beats ${computerSelection}! You won!`;
-        break;
 
         default:
             return `${computerSelection} beats ${playerSelection}! You lose!`
-            break;
     }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
-console.log("The Computer's Choice was " + computerSelection)
+function game() {
+
+    for (let i = 1; i < 6; i++) {
+        console.log("Round " + i++ + " from 5")
+
+        var playerSelection = prompt("Test");
+        var computerSelection = getComputerChoice();
+        
+        play = playRound(playerSelection, computerSelection)
+        console.log(play)
+    }
+}
+
