@@ -14,12 +14,13 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection); {
+
+    if (playerSelection == computerSelection) {
         return "It's a Tie!"
     }
     
     switch(true) {
-        case playerSelection == 'rock' && computerSelection == 'scissors':
+        case playerSelection == 'rock' && computerSelection === 'scissors':
         case playerSelection == 'paper' && computerSelection == 'rock':
         case playerSelection == 'scissors' && computerSelection == 'paper':
             return `${playerSelection} beats ${computerSelection}! You won!`;
@@ -27,5 +28,11 @@ function playRound(playerSelection, computerSelection) {
 
         default:
             return `${computerSelection} beats ${playerSelection}! You lose!`
+            break;
     }
 }
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection))
+console.log("The Computer's Choice was " + computerSelection)
