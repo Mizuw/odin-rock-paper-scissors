@@ -9,17 +9,16 @@ function getComputerChoice() {
     else {
         ComputerChoice = "scissors"
     }
-
     return ComputerChoice
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) { 
 
-    if (playerSelection == computerSelection) {
+    if (playerSelection == computerSelection) { 
         return "It's a Tie!"
     }
     
-    switch(true) {
+    switch(true) { 
         case playerSelection == 'rock' && computerSelection === 'scissors':
         case playerSelection == 'paper' && computerSelection == 'rock':
         case playerSelection == 'scissors' && computerSelection == 'paper':
@@ -33,12 +32,12 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
     for (let i = 1; i < 6; i++) {
-        console.log("Round " + i++ + " from 5")
+        console.log("Round " + i + " from 5") 
 
         var playerSelection = prompt("Test");
         var computerSelection = getComputerChoice();
-        
-        play = playRound(playerSelection, computerSelection)
+
+        play = playRound(playerSelection.toLowerCase(), computerSelection)
         console.log(play)
     }
 }
