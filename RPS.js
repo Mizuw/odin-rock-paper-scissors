@@ -34,10 +34,10 @@ function game() {
     for (let i = 1; i < 6; i++) {
         console.log("Round " + i + " from 5") 
 
-        var playerSelection = prompt("Test");
+        var playerSelection = prompt("Rock, Paper or Scissors?")
         var computerSelection = getComputerChoice();
 
-        play = playRound(playerSelection.toLowerCase(), computerSelection)
+        play = playRound(playerSelection, computerSelection)
         console.log(play)
     }
 }
