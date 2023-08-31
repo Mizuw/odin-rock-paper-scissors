@@ -15,7 +15,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) { 
-    if (playerSelection == computerSelection) { 
+    if (playerSelection.toLowerCase() == computerSelection) { 
         return "It's a Tie!"
     }
     switch(true) { 
