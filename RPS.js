@@ -38,20 +38,29 @@ function game() {
         
         var playerSelection = prompt("Rock, Paper or Scissors?")
         var computerSelection = getComputerChoice();
-
-        play = playRound(playerSelection.toLowerCase(), computerSelection)
-        console.log(play)
+        switch(true) {
+            case playerSelection.toLowerCase() == 'rock':
+            case playerSelection.toLowerCase() == 'paper':
+            case playerSelection.toLowerCase() == 'scissors':
+                play = playRound(playerSelection.toLowerCase(), computerSelection)
+                console.log(`You choose ${playerSelection}, while the Computer choose ${computerSelection}!`)
+                console.log(play)
+            break;
+            default:
+                i--
+                console.log("Please enter Rock, Paper or Scissors")
+        }
     }
+
+    console.log(`You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`)
     if (PlayerScore > ComputerScore) {
         console.log('You won!')
     } else if (PlayerScore == ComputerScore) {
         console.log('It\'s a Tie Game!')
-    }
-    
-    else {
+    } else {
         console.log('You lost!')
     } 
-    console.log(`You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`)
-}
+    }
+
 
 
