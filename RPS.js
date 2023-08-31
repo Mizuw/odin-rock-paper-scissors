@@ -46,6 +46,7 @@ function game() {
             break;
             default:
                 i-- // the for loop would continue to the next round regardless, so we subtract one round. Because of that the current round will loop until the user inputs correctly
+                playerSelection-- // for some reason a point to the playerselection will be added when they input something that isn't allowed by the switch statement, so we remove this point. I'm not entirely sure why the point is added, but this works as a fix
                 console.log("Please enter Rock, Paper or Scissors")
         }
     }
