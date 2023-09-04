@@ -44,18 +44,25 @@ function getComputerChoice() {
     return ComputerChoice
 }
 
-function playRound(playerSelection, computerSelection) { 
-    if (playerSelection.toLowerCase() == computerSelection) { 
-        return "It's a Tie!"
-    }
-    switch(true) { 
-        case playerSelection.toLowerCase() == 'rock' && computerSelection === 'scissors':
-        case playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock':
-        case playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper':
-            PlayerScore++ 
-            return `${playerSelection} beats ${computerSelection}! You won!`
-        default:
-            ComputerScore++
-            return `${computerSelection} beats ${playerSelection}! You lose!`
+function playRound() {
+    let playerSelection = this.document.activeElement.getAttribute("id");
+    let computerSelection = getComputerChoice();
+    console.log(`Computers Choice: ${computerSelection}`) // debugging
+    console.log(`Players Choice: ${playerSelection}`) // debugging
+    if (playerSelection == computerSelection) { 
+        console.log("It's a Tie!")
+    }   else {
+        switch(true) { 
+            case playerSelection == 'rock' && computerSelection === 'scissors':
+            case playerSelection == 'paper' && computerSelection == 'rock':
+            case playerSelection == 'scissors' && computerSelection == 'paper':
+                PlayerScore++ 
+                console.log(`${playerSelection} beats ${computerSelection}! You won!`)
+            break;
+            default:
+                ComputerScore++
+                console.log(`${computerSelection} beats ${playerSelection}! You lose!`)
+        }
+        console.log(`You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`)
     }
 }
