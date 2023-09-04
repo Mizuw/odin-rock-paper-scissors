@@ -1,13 +1,12 @@
 const ResultsPara = document.getElementById("ResultsPara");
 const ResultsScore = document.getElementById("ResultsScore");
-
 let PlayerScore = 0; 
 let ComputerScore = 0;
 
 function playRound() {
-    let playerSelection = this.document.activeElement.getAttribute("id");
+    let playerSelection = this.document.activeElement.getAttribute("id"); // gets the "id" from the three buttons, which would be "rock", "paper" or "scissors"
     let computerSelection = getComputerChoice();
-
+    
     if (playerSelection == computerSelection) { 
         ResultsPara.textContent = "It's a Tie!";
     }   
@@ -16,23 +15,23 @@ function playRound() {
             case playerSelection == 'rock' && computerSelection === 'scissors':
             case playerSelection == 'paper' && computerSelection == 'rock':
             case playerSelection == 'scissors' && computerSelection == 'paper':
-                PlayerScore++ 
+                PlayerScore++ // adds one point to the player
                 ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
             break;
             default:
-                ComputerScore++
+                ComputerScore++ // adds one point to the computer
                 ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
         }
         ResultsScore.textContent = `You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`
 
     } 
-    if (PlayerScore > 4) {
+    if (PlayerScore == 5) { 
         ResultsPara.textContent = 'You won!'
-        PlayerScore = 0;
+        PlayerScore = 0; // resets the score
         ComputerScore = 0;
-    } else if (ComputerScore > 4) {
+    } else if (ComputerScore == 5) {
         ResultsPara.textContent = 'You lose!'
-        PlayerScore = 0;
+        PlayerScore = 0; 
         ComputerScore = 0;
     }
 }
