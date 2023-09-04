@@ -1,33 +1,39 @@
+const ResultsPara = document.getElementById("ResultsPara");
+const ResultsScore = document.getElementById("ResultsScore");
+
 let PlayerScore = 0; 
 let ComputerScore = 0;
 
-const container = document.getElementById("#container");
-const results = document.getElementById("results");
-const ResultsPara = document.getElementById("ResultsPara");
-
-function game() {   
+function playRound() {
     let playerSelection = this.document.activeElement.getAttribute("id");
     let computerSelection = getComputerChoice();
-    switch(true) {  // checks the user input, only allows "rock", "paper" or "scissors" (case insensitive because of the .toLowerCase())
-        case playerSelection.toLowerCase() == 'rock':
-        case playerSelection.toLowerCase() == 'paper':
-        case playerSelection.toLowerCase() == 'scissors':
-            play = playRound(playerSelection, computerSelection)
-            console.log(`You choose ${playerSelection}, while the Computer choose ${computerSelection}!`)
-            console.log(play)
 
-            console.log(`You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`)
-            if (PlayerScore > ComputerScore) {
-                console.log('You won!')
-            } else if (PlayerScore == ComputerScore) {
-                console.log('It\'s a Tie Game!')
-            } else {
-                console.log('You lost!')
-            } 
-        break;
-        default:
-            playerSelection-- // for some reason a point to the playerselection will be added when they input something that isn't allowed by the switch statement, so we remove this point. I'm not entirely sure why the point is added, but this works as a fix
-            console.log("Please enter Rock, Paper or Scissors")
+    if (playerSelection == computerSelection) { 
+        ResultsPara.textContent = "It's a Tie!";
+    }   
+    else {
+        switch(true) { 
+            case playerSelection == 'rock' && computerSelection === 'scissors':
+            case playerSelection == 'paper' && computerSelection == 'rock':
+            case playerSelection == 'scissors' && computerSelection == 'paper':
+                PlayerScore++ 
+                ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
+            break;
+            default:
+                ComputerScore++
+                ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
+        }
+        ResultsScore.textContent = `You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`
+
+    } 
+    if (PlayerScore > 4) {
+        ResultsPara.textContent = 'You won!'
+        PlayerScore = 0;
+        ComputerScore = 0;
+    } else if (ComputerScore > 4) {
+        ResultsPara.textContent = 'You lose!'
+        PlayerScore = 0;
+        ComputerScore = 0;
     }
 }
 
@@ -44,31 +50,3 @@ function getComputerChoice() {
     }
     return ComputerChoice
 }
-
-function playRound() {
-    let playerSelection = this.document.activeElement.getAttribute("id");
-    let computerSelection = getComputerChoice();
-    const ResultsScore = document.createElement("p");
-
-    console.log(`Computers Choice: ${computerSelection}`) // debugging
-    console.log(`Players Choice: ${playerSelection}`) // debugging
-    if (playerSelection == computerSelection) { 
-        ResultsPara.textContent = "It's a Tie!";
-    }   else {
-        switch(true) { 
-            case playerSelection == 'rock' && computerSelection === 'scissors':
-            case playerSelection == 'paper' && computerSelection == 'rock':
-            case playerSelection == 'scissors' && computerSelection == 'paper':
-                PlayerScore++ 
-                ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
-            break;
-            default:
-                ComputerScore++
-                ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
-        }
-        ResultsScore.textContent = `You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`
-        results.appendChild(ResultsScore);
-    } 
-
-}
-
