@@ -1,8 +1,9 @@
 let PlayerScore = 0; 
 let ComputerScore = 0;
 
-const container = document.querySelector('#container');
-const buttons = document.querySelector('#buttons');
+const container = document.getElementById("#container");
+const results = document.getElementById("results");
+const ResultsPara = document.getElementById("ResultsPara");
 
 function game() {   
     let playerSelection = this.document.activeElement.getAttribute("id");
@@ -47,22 +48,27 @@ function getComputerChoice() {
 function playRound() {
     let playerSelection = this.document.activeElement.getAttribute("id");
     let computerSelection = getComputerChoice();
+    const ResultsScore = document.createElement("p");
+
     console.log(`Computers Choice: ${computerSelection}`) // debugging
     console.log(`Players Choice: ${playerSelection}`) // debugging
     if (playerSelection == computerSelection) { 
-        console.log("It's a Tie!")
+        ResultsPara.textContent = "It's a Tie!";
     }   else {
         switch(true) { 
             case playerSelection == 'rock' && computerSelection === 'scissors':
             case playerSelection == 'paper' && computerSelection == 'rock':
             case playerSelection == 'scissors' && computerSelection == 'paper':
                 PlayerScore++ 
-                console.log(`${playerSelection} beats ${computerSelection}! You won!`)
+                ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
             break;
             default:
                 ComputerScore++
-                console.log(`${computerSelection} beats ${playerSelection}! You lose!`)
+                ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
         }
-        console.log(`You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`)
-    }
+        ResultsScore.textContent = `You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`
+        results.appendChild(ResultsScore);
+    } 
+
 }
+
