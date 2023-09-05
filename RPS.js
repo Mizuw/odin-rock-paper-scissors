@@ -3,8 +3,9 @@ const ResultsPara = document.getElementById("ResultsPara");
 const ResultsScore = document.getElementById("ResultsScore");
 const PlayersChoicePara = document.getElementById("PlayersChoicePara");
 const ComputersChoicePara = document.getElementById("ComputersChoicePara");
-const buttons = document.getElementById("buttons");
-const SoundWin = document.getElementById("SoundWin"); // made with jsfxr
+
+//sound effects (made with jsfxr)
+const SoundWin = document.getElementById("SoundWin"); 
 const SoundLose = document.getElementById("SoundLose");
 const SoundTie = document.getElementById("SoundTie");
 const RoundOverWin = document.getElementById("RoundOverWin");
@@ -18,6 +19,7 @@ function playRound() {
     let playerSelection = this.document.activeElement.getAttribute("id"); // gets the "id" from the three buttons, which would be "rock", "paper" or "scissors"
     let computerSelection = getComputerChoice();
     
+    //shows the selection of both the player and the computer
     PlayersChoicePara.textContent = `${playerSelection}`;
     ComputersChoicePara.textContent = `${computerSelection}`;
 
@@ -41,7 +43,7 @@ function playRound() {
         }
         ResultsScore.textContent = `${PlayerScore} - ${ComputerScore}`
     } 
-    if (PlayerScore > 4) { // NOTE: a better way for this would be a switch statement, but when I tried it it stopped working. Gonna have to look into it.
+    if (PlayerScore > 4) {
         PlayerScore = 0;
         ComputerScore = 0;
         ResultsScore.textContent = '0 - 0'
