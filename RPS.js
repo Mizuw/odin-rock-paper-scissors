@@ -22,7 +22,7 @@ function playRound() {
                 ComputerScore++ // adds one point to the computer
                 ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
         }
-        ResultsScore.textContent = `You have a Score of ${PlayerScore}, while the Computer has a Score of ${ComputerScore}`
+        ResultsScore.textContent = `${PlayerScore} - ${ComputerScore}`
 
     } 
     if (PlayerScore == 5) { 
