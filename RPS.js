@@ -3,11 +3,13 @@ const ResultsPara = document.getElementById("ResultsPara");
 const ResultsScore = document.getElementById("ResultsScore");
 const PlayersChoicePara = document.getElementById("PlayersChoicePara");
 const ComputersChoicePara = document.getElementById("ComputersChoicePara");
+const buttons = document.getElementById("buttons");
 const SoundWin = document.getElementById("SoundWin"); // made with jsfxr
 const SoundLose = document.getElementById("SoundLose");
 const SoundTie = document.getElementById("SoundTie");
 const RoundOverWin = document.getElementById("RoundOverWin");
 const RoundOverLose = document.getElementById("RoundOverLose");
+const resetScoreSound = document.getElementById("ResetScoreSound")
 
 let PlayerScore = 0; 
 let ComputerScore = 0;
@@ -28,25 +30,29 @@ function playRound() {
             case playerSelection == 'Rock' && computerSelection === 'Scissors':
             case playerSelection == 'Paper' && computerSelection == 'Rock':
             case playerSelection == 'Scissors' && computerSelection == 'Paper':
-                PlayerScore++ // adds one point to the player
-                ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
-                SoundWin.play();
+                    PlayerScore++ // adds one point to the player
+                    ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
+                    SoundWin.play();
             break;
             default:
-                ComputerScore++ // adds one point to the computer
-                ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
-                SoundLose.play();
+                    ComputerScore++ // adds one point to the computer
+                    ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
+                    SoundLose.play();
         }
         ResultsScore.textContent = `${PlayerScore} - ${ComputerScore}`
     } 
-    if (PlayerScore == 5) {
-        ResultsScore.addEventListener('click', resetScore) // NOTE: a better way for this would be a switch statement, but when I tried it it stopped working. Gonna have to look into it.
-        ResultsScore.innerHTML = '<i class="fa-solid fa-repeat"></i>'
+    if (PlayerScore > 4) { // NOTE: a better way for this would be a switch statement, but when I tried it it stopped working. Gonna have to look into it.
+        PlayerScore = 0;
+        ComputerScore = 0;
+        ResultsScore.textContent = '0 - 0'
+        resetScoreSound.play();
         ResultsPara.textContent = 'You won!'
         RoundOverWin.play();
-    } else if (ComputerScore == 5) {
-        ResultsScore.addEventListener('click', resetScore)
-        ResultsScore.innerHTML = '<i class="fa-solid fa-repeat"></i>'
+    } else if (ComputerScore > 4) {
+        PlayerScore = 0;
+        ComputerScore = 0;
+        ResultsScore.textContent = '0 - 0'
+        resetScoreSound.play();
         ResultsPara.textContent = 'You lose!'
         RoundOverLose.play();
     }
@@ -64,10 +70,4 @@ function getComputerChoice() {
         ComputerChoice = "Scissors"
     }
     return ComputerChoice
-}
-
-function resetScore() {
-    PlayerScore = 0
-    ComputerScore = 0
-    ResultsScore.textContent = '0 - 0'
 }
