@@ -1,5 +1,7 @@
 const ResultsPara = document.getElementById("ResultsPara");
 const ResultsScore = document.getElementById("ResultsScore");
+const SoundWin = document.getElementById("SoundWin");
+const SoundLose = document.getElementById("SoundLose");
 let PlayerScore = 0; 
 let ComputerScore = 0;
 
@@ -17,13 +19,14 @@ function playRound() {
             case playerSelection == 'scissors' && computerSelection == 'paper':
                 PlayerScore++ // adds one point to the player
                 ResultsPara.textContent = `${playerSelection} beats ${computerSelection}! You won!`;
+                SoundWin.play();
             break;
             default:
                 ComputerScore++ // adds one point to the computer
                 ResultsPara.textContent = `${computerSelection} beats ${playerSelection}! You lose!`;
+                SoundLose.play();
         }
         ResultsScore.textContent = `${PlayerScore} - ${ComputerScore}`
-
     } 
     if (PlayerScore == 5) { 
         ResultsPara.textContent = 'You won!'
@@ -48,4 +51,9 @@ function getComputerChoice() {
         ComputerChoice = "scissors"
     }
     return ComputerChoice
+}
+
+function ResetScore() {
+    PlayerScore = 0;
+    ComputerScore = 0;
 }

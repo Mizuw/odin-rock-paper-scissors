@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin - Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div id="container">
         <h1>Rock, Paper, Scissors</h1>
-        <div id="buttons" class="buttons">
-            <button id="rock" onclick="playRound()">Rock</button>
-            <button id="paper" onclick="playRound()">Paper</button>
-            <button id="scissors" onclick="playRound()">Scissors</button>
-        </div>
-    </div>
-    <div id="results" class="results">
         <p id="ResultsScore">0 - 0</p>
-        <p id="ResultsPara">Select Rock, Paper or Scissors</p>
+        <div id="buttons" class="buttons">
+            <button id="rock" onclick="playRound()"><i class="fa-solid fa-hand-back-fist"></i></button>
+            <button id="paper" onclick="playRound()"><i class="fa-solid fa-hand"></i></button>
+            <button id="scissors" onclick="playRound()"><i class="fa-solid fa-hand-scissors"></i></button>
+        </div>
+        <audio id="SoundLose" src="assets/soundlose.wav"></audio>
+        <audio id="SoundWin" src="assets/soundWin.wav"></audio>
     </div>
+        <p id="ResultsPara">Select Rock, Paper or Scissors</p>
+    <footer>
+        <button>
+            <a href="https://github.com/mizuw/" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </button>
+    </footer> 
+
     <script src="RPS.js" defer></script>
 </body>
 </html>
