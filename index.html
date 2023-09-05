@@ -6,25 +6,39 @@
     <title>Odin - Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
     <div id="container">
         <h1>Rock, Paper, Scissors</h1>
-        <p id="ResultsScore">0 - 0</p>
+        <button id="ResultsScore">0 - 0</button>
+        <p id="ResultsPara">Select Rock, Paper or Scissors</p>
         <div id="buttons" class="buttons">
-            <button id="rock" onclick="playRound()"><i class="fa-solid fa-hand-back-fist"></i></button>
-            <button id="paper" onclick="playRound()"><i class="fa-solid fa-hand"></i></button>
-            <button id="scissors" onclick="playRound()"><i class="fa-solid fa-hand-scissors"></i></button>
+            <button id="Rock" onclick="playRound()"><i class="fa-solid fa-hand-back-fist"></i></button>
+            <button id="Paper" onclick="playRound()"><i class="fa-solid fa-hand"></i></button>
+            <button id="Scissors" onclick="playRound()"><i class="fa-solid fa-hand-scissors"></i></button>
         </div>
+
         <audio id="SoundLose" src="assets/soundlose.wav"></audio>
         <audio id="SoundWin" src="assets/soundWin.wav"></audio>
-    </div>
-        <p id="ResultsPara">Select Rock, Paper or Scissors</p>
-    <footer>
-        <button>
-            <a href="https://github.com/mizuw/" target="_blank"><i class="fa-brands fa-github"></i></a>
-        </button>
-    </footer> 
+        <audio id="SoundTie" src="assets/soundtie.wav"></audio>
+        <audio id="RoundOverWin" src="assets/RoundOverWin.wav"></audio>
+        <audio id="RoundOverLose" src="assets/RoundOverLose.wav"></audio>
+        
+        <div class="PlayersChoice">
+            <h1>Players Choice</h1>
+            <p id="PlayersChoicePara"></p>
+        </div>
+        <div class="ComputersChoice">
+            <h1>Computers Choice</h1>
+            <p id="ComputersChoicePara"></p>
+        </div>
+
+        <div class="links">
+            <button onclick="window.open('https://github.com/mizuw/odin-rock-paper-scissors', '_blank')">
+                <i class="fa-brands fa-github"></i>
+              </button>
+        </div>
 
     <script src="RPS.js" defer></script>
 </body>

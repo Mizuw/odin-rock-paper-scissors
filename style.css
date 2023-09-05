@@ -1,10 +1,11 @@
 body {
-    background-color: #FBCA1F;
+    background-color: orange;
     padding: 0;
     margin: 0;
     text-align: center;
     font-family: 'Roboto', arial;
-    color: rgb(19, 19, 19);
+    color: rgb(255, 255, 255);
+    font-size: 25px;
 }
 
 button {
@@ -28,7 +29,12 @@ button {
     box-shadow: 0.05em 0.05em;
   }
 
+.PlayersChoice, .ComputersChoice {
+    padding: 100px;
+    display: inline-block;
+}
+
 .links {
-    position: fixed;
-    bottom: 0;
+    bottom: 0%;
+    position: relative;
 }
