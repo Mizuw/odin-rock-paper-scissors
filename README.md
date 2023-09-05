@@ -1,6 +1,6 @@
 # Odin Project - JavaScript - Rock Paper Scissors - Old Version
 
-This is the old version of Rock Paper Scissors, which doesn't come an UI. You can switch to the new version by selecting the `main` branch in GitHub.
+This is the old version of Rock Paper Scissors, which doesn't come with an UI. You can switch to the new version by selecting the `main` branch in GitHub.
 
 To start the game call the `game()` Function from your JavaScript Console.
 
