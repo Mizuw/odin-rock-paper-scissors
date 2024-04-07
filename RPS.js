@@ -61,7 +61,7 @@ function playRound() {
 }
 
 function getComputerChoice() {
-    let ComputerChoice = Math.floor(Math.random() * 4) // this variable chooses a random number from 1-3, after that we can assign the numbers rock paper or scissors, which then would be the choice of the computer (as seen in the if statements in the next lines)
+    let ComputerChoice = Math.floor(Math.random() * 3) + 1
     if (ComputerChoice == 1) {
         ComputerChoice = "Rock"
     }
